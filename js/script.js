@@ -1,9 +1,25 @@
 const images = [
-	'img/01.webp',
-	'img/02.webp',
-	'img/03.webp',
-	'img/04.webp',
-	'img/05.webp'
+	{
+			image: 'img/01.webp',
+			title: 'Marvel\'s Spiderman Miles Morales',
+			text: 'Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.',
+	}, {
+			image: 'img/02.webp',
+			title: 'Ratchet & Clank: Rift Apart',
+			text: 'Go dimension-hopping with Ratchet and Clank as they take on an evil emperor from another reality.',
+	}, {
+			image: 'img/03.webp',
+			title: 'Fortnite',
+			text: "Grab all of your friends and drop into Epic Games Fortnite, a massive 100 - player face - off that combines looting, crafting, shootouts and chaos.",
+	}, {
+			image: 'img/04.webp',
+			title: 'Stray',
+			text: 'Lost, injured and alone, a stray cat must untangle an ancient mystery to escape a long-forgotten city',
+	}, {
+			image: 'img/05.webp',
+			title: "Marvel's Avengers",
+			text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
+	}
 ];
 
 let counterImg = 0;
@@ -20,20 +36,20 @@ const prevBtn = document.querySelector('.prev');
 itemsWrapper.innerHTML = '';
 thumbsWrapper.innerHTML = '';
 
-// stampo tutte le immagini e le thumbs
-for(let i = 0; i < images.length; i++){
-  const image = images[i];
-  itemsWrapper.innerHTML += `<img class="item hide" src="${image}" alt="">`;
+// stampo tutte le immagini, le info e le thumbs
+images.forEach((game) =>{
+	itemsWrapper.innerHTML += `
+	<img class="item hide" src="${game.image}" alt="">
+	<div class="image-info hide">
+		<h4>Title:</h4>
+		<h2>${game.title}</h2>
+		<h4>Trama:</h4>
+		<h3>${game.text}</h3>
+	</div>`
 
-  // non uso questo metodo perché usiamo new image() ma è voalido comunque 
-  //thumbsWrapper.innerHTML += `<img class="thumb" src="${image}" alt="">`;
+	thumbsWrapper.innerHTML += `<img class="thumb" src="${game.image}" alt="">`;
+})
 
-  // creo un nuovo elemento img
-  const thumb = new Image();
-  thumb.src = image;
-  thumb.classList.add('thumb');
-  thumbsWrapper.append(thumb);
-}
 
 // prendo tutte le immagini
 const itemsCollection = document.getElementsByClassName('item');
@@ -47,18 +63,22 @@ const thumbsCollection = document.getElementsByClassName('thumb');
 // mostro la prima thumb
 thumbsCollection[counterImg].classList.add('active');
 
+// prendo tutte le image-info
+const imageInfoCollection = document.getElementsByClassName('image-info');
+
+// mostroo la prima image-info
+imageInfoCollection[counterImg].classList.remove('hide');
+
+
 
 
 // click next
-nextBtn.addEventListener('click', cliclNextPrev)
+nextBtn.addEventListener('click', clickNextPrev)
 
 // click prev
-prevBtn.addEventListener('click', cliclNextPrev)
+prevBtn.addEventListener('click', clickNextPrev)
 
-function cliclNextPrev(event){
-  // la funzione richiamata da un listener di eventi riceve l'evento stesso
-  // il target dell'evento è l'elemento html che lo genera
-  // quindi posso prenderne il suo id e usarlo
+function clickNextPrev(event){
   if(event.target.id === 'next') doNextPrev(true);
   else doNextPrev(false);
 }
@@ -70,6 +90,7 @@ function cliclNextPrev(event){
  */
 function doNextPrev(isNext){
   itemsCollection[counterImg].classList.add('hide');
+	imageInfoCollection[counterImg].classList.add('hide');
   thumbsCollection[counterImg].classList.remove('active');
   if(isNext){
     counterImg++;
@@ -79,5 +100,6 @@ function doNextPrev(isNext){
     if(counterImg < 0) counterImg = images.length - 1;
   }
   itemsCollection[counterImg].classList.remove('hide');
+	imageInfoCollection[counterImg].classList.remove('hide');
   thumbsCollection[counterImg].classList.add('active');
 }
