@@ -13,12 +13,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color:lightseagreen;
+  background-color:blueviolet;
 }
 
 .container{
-  width: 835px;
-  height: 300px;
+  width: 900px;
+  height: 400px;
   margin: 0 auto;
   background-color: brown;
 }
@@ -51,7 +51,7 @@
 .thumbs-wrapper{
   float: left;
   height: 100%;
-  width: 135px;
+  width: 200px;
   background-color: black;
 }
 
@@ -59,12 +59,12 @@
   width: 100%;
   height: calc(100% / 5);
   object-fit: cover;
-  opacity: .5;
+  opacity: .2;
 }
 
 .thumbs-wrapper img.active{
   opacity: 1;
-  border: 2px solid white;
+  border: 3px solid white;
 }
 
 .buttons{
@@ -74,7 +74,7 @@
   position: absolute;
   height: 100%;
   top: 0;
-  right: 55px;
+  right: 80px;
   padding: 10px 0 ;
 }
 
