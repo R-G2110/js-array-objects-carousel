@@ -58,6 +58,7 @@ h2 {
   height: 100%;
   width: 150px;
   background-color: black;
+  cursor: pointer;
 }
 
 .thumbs-wrapper img {
@@ -65,6 +66,7 @@ h2 {
   height: calc(100% / 5);
   object-fit: cover;
   opacity: .2;
+  
 }
 
 .thumbs-wrapper img.active {

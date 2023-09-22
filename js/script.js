@@ -46,9 +46,33 @@ images.forEach((game) =>{
 		<h4>Trama:</h4>
 		<h3>${game.text}</h3>
 	</div>`
-
-	thumbsWrapper.innerHTML += `<img class="thumb" src="${game.image}" alt="">`;
 })
+
+	for (let i=0;i<images.length;i++){
+		const thumb = thumbsCreation(i);
+
+		//bonus 3
+  	thumb.addEventListener('click', function(){
+			for (let i=0; i<thumbsCollection.length; i++){
+				itemsCollection[i].classList.add('hide');
+				imageInfoCollection[i].classList.add('hide');
+				thumbsCollection[i].classList.remove('active');
+				console.log('giri: '+i);
+			}
+			itemsCollection[i].classList.remove('hide');
+			imageInfoCollection[i].classList.remove('hide');
+			this.classList.add('active');
+  })
+  thumbsWrapper.append(thumb);
+	}
+	function thumbsCreation (index){
+		const newThumbs = document.createElement('img');
+		newThumbs.className = 'thumb';
+		newThumbs._squareID = index;
+		newThumbs.src = images[index].image;
+		return newThumbs;
+	}
+
 
 
 // prendo tutte le immagini
@@ -69,8 +93,11 @@ const imageInfoCollection = document.getElementsByClassName('image-info');
 // mostroo la prima image-info
 imageInfoCollection[counterImg].classList.remove('hide');
 
-
-
+for(let i =0; i<thumbsCollection.length;i++){
+	console.log('=========');
+	console.log(thumbsCollection[i]);
+	console.log('=========');
+}
 
 // click next
 nextBtn.addEventListener('click', clickNextPrev)
