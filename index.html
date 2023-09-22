@@ -3,11 +3,53 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 	<!-- Custom CSS -->
 	<link rel="stylesheet" href="css/style.css">
+	
 	<title>Js Array Objects Carousel</title>
 </head>
 <body>
+	<div class="main-wrapper">
+
+    <div class="container">
+
+      <div class="slider">
+
+        <div class="items-wrapper">
+          <img class="item" src="img/colibri.jpg" alt="">;
+        </div>
+
+        <div class="thumbs-wrapper">
+          <img class="thumb" src="img/bosco.jpg" alt="">;
+          <img class="thumb active" src="img/colibri.jpg" alt="">;
+          <img class="thumb" src="img/orsi.jpg" alt="">;
+          <img class="thumb" src="img/passero.jpg" alt="">;
+          <img class="thumb" src="img/pigna.jpg" alt="">;
+        </div>
+
+        <div class="buttons">
+          <div class="btn-arrow prev">
+            <i class="fa-solid fa-chevron-up"  id="prev"></i>
+          </div>
+          <div class="btn-arrow next">
+            <i class="fa-solid fa-chevron-down"  id="next"></i>
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+
 	<script src="js/script.js"></script>
 </body>
 </html>
