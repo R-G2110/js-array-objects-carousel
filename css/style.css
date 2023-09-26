@@ -17,7 +17,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color:lightseagreen;
+  background-color:blueviolet
 }
 
 .container {
@@ -36,7 +36,6 @@ h2 {
   float: left;
   height: 100%;
   width: 750px;
-  background-color: aqua;
   position: relative;
 }
 
@@ -102,8 +101,12 @@ h2 {
 }
 
 .image-info {
+  width: 600px;
+  padding: 10px;
+  border-radius: 10px;
   position: absolute;
   bottom: 20px;
   left: 20px;
-  color: fuchsia;
+  color: white;
+  background-color: rgba(0,0,0, .5);
 }

@@ -41,9 +41,7 @@ images.forEach((game) =>{
 	itemsWrapper.innerHTML += `
 	<img class="item hide" src="${game.image}" alt="">
 	<div class="image-info hide">
-		<h4>Title:</h4>
 		<h2>${game.title}</h2>
-		<h4>Trama:</h4>
 		<h3>${game.text}</h3>
 	</div>`
 })
@@ -62,9 +60,10 @@ images.forEach((game) =>{
 			itemsCollection[i].classList.remove('hide');
 			imageInfoCollection[i].classList.remove('hide');
 			this.classList.add('active');
-  })
-  thumbsWrapper.append(thumb);
+ 	 })
+ 	 thumbsWrapper.append(thumb);
 	}
+	
 	function thumbsCreation (index){
 		const newThumbs = document.createElement('img');
 		newThumbs.className = 'thumb';
@@ -73,31 +72,16 @@ images.forEach((game) =>{
 		return newThumbs;
 	}
 
-
-
-// prendo tutte le immagini
+// prendo tutte le immagini, le thumb e le image-info
 const itemsCollection = document.getElementsByClassName('item');
-
-// mostro la prima immagine
-itemsCollection[counterImg].classList.remove('hide');
-
-// prendo tutte le thumb
 const thumbsCollection = document.getElementsByClassName('thumb');
-
-// mostro la prima thumb
-thumbsCollection[counterImg].classList.add('active');
-
-// prendo tutte le image-info
 const imageInfoCollection = document.getElementsByClassName('image-info');
 
-// mostroo la prima image-info
+// mostro la prima immagine, la prima thumb e la prima image-info
+itemsCollection[counterImg].classList.remove('hide');
+thumbsCollection[counterImg].classList.add('active');
 imageInfoCollection[counterImg].classList.remove('hide');
 
-for(let i =0; i<thumbsCollection.length;i++){
-	console.log('=========');
-	console.log(thumbsCollection[i]);
-	console.log('=========');
-}
 
 // click next
 nextBtn.addEventListener('click', clickNextPrev)
